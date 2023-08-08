@@ -28,4 +28,4 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the entry point
-ENTRYPOINT ["/bin/bash"]
+CMD ["/bin/bash"]
