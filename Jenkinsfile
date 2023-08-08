@@ -1,9 +1,7 @@
 pipeline
 {
   agent {
-    dockerfile {
-        additionalBuildArgs '--entrypoint=/bin/bash'
-    }
+    dockerfile true
   }
     stages {
         stage('Build') {
