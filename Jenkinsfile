@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
+                    . $HOME/spack/share/spack/setup-env.sh
                     export MPICC_DIR=$(which mpicc)
                     export MPICXX_DIR=$(which mpicxx)
                     export MPIF90_DIR=$(which mpif90)
