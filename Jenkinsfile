@@ -2,7 +2,7 @@ pipeline
 {
   agent {
     dockerfile {
-        additionalBuildArgs '-it --entrypoint=/bin/bash'
+        additionalBuildArgs '--entrypoint=/bin/bash'
     }
   }
     stages {
