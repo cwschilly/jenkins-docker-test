@@ -4,16 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                    . $HOME/spack/share/spack/setup-env.sh && \\
-                    export MPICC_DIR=$(which mpicc) && \\
-                    export MPICXX_DIR=$(which mpicxx) && \\
-                    export MPIF90_DIR=$(which mpif90) && \\
-                    export MPIRUN_DIR=$(which mpirun) && \\
-                    mkdir -p $WORKSPACE/trilinos && \\
-                    cd $WORKSPACE/trilinos && \\
-                    git clone https://github.com/NexGenAnalytics/Trilinos.git && \\
-                    mkdir -p $WORKSPACE/trilinos/build && \\
-                    cd $WORKSPACE/trilinos/build && \\
+                    . $HOME/spack/share/spack/setup-env.sh &&
+                    export MPICC_DIR=$(which mpicc)
+                    export MPICXX_DIR=$(which mpicxx)
+                    export MPIF90_DIR=$(which mpif90)
+                    export MPIRUN_DIR=$(which mpirun)
+                    mkdir -p $WORKSPACE/trilinos
+                    cd $WORKSPACE/trilinos
+                    git clone https://github.com/NexGenAnalytics/Trilinos.git
+                    mkdir -p $WORKSPACE/trilinos/build
+                    cd $WORKSPACE/trilinos/build
                     cmake -G "Ninja" \
                         -D CMAKE_GENERATOR STRING : Ninja \
                         -D Trilinos_PARALLEL_LINK_JOBS_LIMIT STRING : 2 \
@@ -57,15 +57,15 @@ pipeline {
                         -D Trilinos_ENABLE_PyTrilinos BOOL : OFF \
                         \
                         -D Trilinos_ENABLE_Epetra BOOL : OFF \
-                        $WORKSPACE/trilinos/Trilinos && \\
-                    ninja -j3 && \\
+                        $WORKSPACE/trilinos/Trilinos
+                    ninja -j3
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh '''
-                    cd $WORKSPACE/trilinos/build && \\
+                    cd $WORKSPACE/trilinos/build
                     ctest -j8
                 '''
             }
