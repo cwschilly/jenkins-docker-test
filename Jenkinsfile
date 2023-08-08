@@ -19,8 +19,10 @@ pipeline
       stages
       {
         stage("run") {
-            sh '''python -c 'print("Hello world")'
-            '''
+            steps {
+                sh '''python -c 'import sys; print(sys.version)'
+                '''
+            }
         }
       }
     }
