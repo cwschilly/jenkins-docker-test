@@ -1,7 +1,8 @@
 pipeline {
-    agent {dockerfile true
+    agent none
     stages {
         stage('Build') {
+            agent {dockerfile true}
             steps {
                 sh '''#!/bin/bash
                     . $HOME/spack/share/spack/setup-env.sh
@@ -70,6 +71,5 @@ pipeline {
                 '''
             }
         }
-    }
     }
 }
