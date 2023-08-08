@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y build-essential git curl python3
 
 # Install Spack
-RUN git clone https://github.com/spack/spack.git && \
+RUN git -C $HOME clone https://github.com/spack/spack.git && \
     . $HOME/spack/share/spack/setup-env.sh
 
 # Configure Spack environment
