@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y build-essential git curl python3
 
 # Install Spack
-RUN git clone https://github.com/spack/spack.git $HOME/spack && \
+RUN git clone https://github.com/spack/spack.git && \
     . $HOME/spack/share/spack/setup-env.sh
 
 # Configure Spack environment
@@ -14,7 +14,7 @@ ENV SPACK_ROOT=$HOME/spack
 ENV PATH=$SPACK_ROOT/bin:$PATH
 
 # Install software with Spack
-RUN spack install \
+RUN . $HOME/spack/share/spack/setup-env.sh && spack install \
 cmake \
 ninja \
 ccache \
