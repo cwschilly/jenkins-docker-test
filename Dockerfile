@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Install prerequisites
 RUN apt-get update && \
-    apt-get install -y build-essential git curl python3
+    apt-get install -y build-essential git curl python3 gcc
 
 # Install Spack
 RUN git -C $HOME clone https://github.com/spack/spack.git && \
