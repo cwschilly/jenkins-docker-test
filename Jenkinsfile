@@ -1,11 +1,10 @@
 pipeline {
-    agent none
+    agent {dockerfile true}
     stages {
         stage('Build') {
-            agent {dockerfile true}
             steps {
                 sh '''#!/bin/bash
-                    . $HOME/spack/share/spack/setup-env.sh
+                    $HOME/spack/share/spack/setup-env.sh
                     export MPICC_DIR=$(which mpicc)
                     export MPICXX_DIR=$(which mpicxx)
                     export MPIF90_DIR=$(which mpif90)
