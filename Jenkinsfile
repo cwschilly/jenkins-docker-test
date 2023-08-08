@@ -1,33 +1,14 @@
-pipeline
-{
-  agent none
-
-  stages
-  {
-    stage("main")
-    {
-      agent
-      {
-        docker
-        {
-          image 'pierrpebay/nga-trilinos-base'
-          args '-it --entrypoint=/bin/bash'
-        }
-      }
-
-    //   post { cleanup { cleanWs() } }
-
-      stages
-      {
-        stage("run") {
+pipeline {
+    agent {
+        docker { image 'node:18.17.0-alpine3.18' }
+    }
+    stages {
+        stage('Test') {
             steps {
-                sh '''python -c 'import sys; print(sys.version)'
-                '''
+                sh 'node --version'
             }
         }
-      }
     }
-  }
 }
         // stages {
         //     stage('Build') {
