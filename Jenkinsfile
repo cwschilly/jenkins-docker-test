@@ -8,6 +8,9 @@ pipeline {
                 sh '''#!/bin/bash
                 python3 --version
                 which spack
+                source /spack/share/spack/setup-env.sh
+                which cmake
+                which ninja
                 '''
                 sh '''#!/bin/bash
                     . /spack/share/spack/setup-env.sh &&
