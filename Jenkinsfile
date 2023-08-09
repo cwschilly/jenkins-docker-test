@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                chmod -R 777 ${HOME}
+                whoami
                 python3 --version
                 which spack
                 source /opt/spack/share/spack/setup-env.sh

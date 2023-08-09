@@ -1,8 +1,6 @@
 # Choose a base image
 FROM ubuntu:22.04
 
-USER root
-
 # Install prerequisites
 RUN apt-get update && \
     apt-get install -y build-essential git curl python3 gfortran libssl-dev
@@ -23,8 +21,6 @@ RUN apt-get update && \
 # ninja \
 # ccache \
 # openmpi
-
-USER jenkins
 
 # Now we install spack and find compilers/externals
 RUN mkdir -p /opt/ && cd /opt/ && git clone --depth 1 --branch "v0.20.1" https://github.com/spack/spack.git
