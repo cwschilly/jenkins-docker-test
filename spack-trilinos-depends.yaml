@@ -1,6 +1,6 @@
 spack:
   definitions:
-    - compilers: [gcc@11.4.0]
+    - compilers: [gcc]
     - packages:
         - cmake
         - ninja
