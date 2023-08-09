@@ -9,10 +9,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                chmod -R 777 .
                 python3 --version
                 which spack
-                source /spack/share/spack/setup-env.sh
+                source /opt/spack/share/spack/setup-env.sh
+                spack env activate trilinos
                 which cmake
                 which ninja
                 '''
