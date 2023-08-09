@@ -20,7 +20,7 @@ pipeline {
                 which ninja
                 '''
                 sh '''#!/bin/bash
-                    . /spack/share/spack/setup-env.sh &&
+                    source /opt/spack/share/spack/setup-env.sh
                     export MPICC_DIR=$(which mpicc)
                     export MPICXX_DIR=$(which mpicxx)
                     export MPIF90_DIR=$(which mpif90)
