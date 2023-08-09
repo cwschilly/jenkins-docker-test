@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'pierrpebay/nga-trilinos-base' }
+        dockerfile true
     }
     stages {
         stage('Test') {
             steps {
-                sh 'python --version'
+                sh 'python3 --version'
             }
         }
     }
