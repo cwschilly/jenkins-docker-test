@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        dockerfile true
+        dockerfile {
+            additionalBuildArgs '-u root:root'
+        }
     }
     environment {
         HOME = "${env.WORKSPACE}"
