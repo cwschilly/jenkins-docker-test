@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 
 # Install prerequisites
 RUN apt-get update && \
-    apt-get install -y build-essential git curl python3 gfortran
+    apt-get install -y build-essential git curl python3 gfortran libssl-dev
 
 # # Install Spack
 # RUN git clone https://github.com/spack/spack.git && \
