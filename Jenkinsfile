@@ -21,6 +21,7 @@ pipeline {
                 '''
                 sh '''#!/bin/bash
                     source /opt/spack/share/spack/setup-env.sh
+                    spack env activate trilinos
                     export MPICC_DIR=$(which mpicc)
                     export MPICXX_DIR=$(which mpicxx)
                     export MPIF90_DIR=$(which mpif90)
