@@ -6,6 +6,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
+                python3 --version
+                cmake --version
+                which ninja
+                '''
+                sh '''#!/bin/bash
                     . /spack/share/spack/setup-env.sh &&
                     export MPICC_DIR=$(which mpicc)
                     export MPICXX_DIR=$(which mpicxx)
