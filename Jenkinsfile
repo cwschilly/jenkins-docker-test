@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                 python3 --version
+                export PATH=/spack/bin:$PATH
                 cmake --version
                 which ninja
                 '''
