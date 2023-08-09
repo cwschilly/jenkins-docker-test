@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            additionalBuildArgs '-u root:root'
+            args '-u root:root'
         }
     }
     environment {
